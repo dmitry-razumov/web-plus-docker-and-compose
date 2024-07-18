@@ -7,7 +7,7 @@ RUN npm run build \
   && rm -rf ./src/ \
   && rm -rf ./node_modules
 
-FROM nginx:1.23.1-alpine AS runner
+FROM nginx:latest AS runner
 WORKDIR /app
 COPY --from=builder /app/build /usr/share/nginx/html
 COPY ./nginx/default.conf /etc/nginx/conf.d
